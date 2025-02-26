@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+        }
+        .card-content {
+            font-size: 1em;
+            margin-bottom: 8px;
+        }
+        .card-footer {
+            font-size: 0.875em;
+            color: #555;
+        }
+        .card a {
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blog Post</h1>
+
+    {% for post in posts reverse %}
+    <div class="card">
+        <a href="/post/{{ post.id }}">
+            <div class="card-title">{{ post.title }}</div>
+        </a>
+        <div class="card-content">{{ post.content |truncatewords:20 }}</div>
+        <div class="card-footer">{{ post.created_at }}</div>
+    </div>
+    {% endfor %}
+</body>
+</html></div>
